@@ -74,6 +74,7 @@ func runConfig(wg *sync.WaitGroup, conf Config, i int, stop chan struct{}, watch
 }
 
 func handleTicker(conf Config, eventCache *cache.Cache, i int, timer *time.Ticker) {
+	defer timer.Stop()
 	select {
 	case _ = <-timer.C:
 		Folder := xtime.Fmt(conf.Folder, time.Now())
