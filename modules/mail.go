@@ -54,7 +54,7 @@ func (Mail) Perform(config interface{}, fileName string) error {
 	m.Attach(fileName)
 
 	d := gomail.NewDialer(c.Server, c.Port, c.User, c.Pass)
-	d.TLSConfig = &tls.Config{InsecureSkipVerify: true}
+	d.TLSConfig = &tls.Config{InsecureSkipVerify: false}
 
 	return d.DialAndSend(m)
 }
