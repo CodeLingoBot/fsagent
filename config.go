@@ -26,7 +26,7 @@ type Config struct {
 	Debounce bool   `json:"debounce"`
 }
 
-func runConfig(wg *sync.WaitGroup, conf Config, i int, stop chan struct{}, watcher map[string]*fsnotify.Watcher) {
+func runConfig(wg *sync.WaitGroup, conf Config, i int, <-stop chan struct{}, watcher map[string]*fsnotify.Watcher) {
 	var timer *time.Ticker
 	var eventCache *cache.Cache
 
